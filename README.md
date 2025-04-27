@@ -112,6 +112,4 @@ python demo/demo.py \
 
 # Copyright
 
-For commercial purpose usage, please contact Dr. Lianwen Jin: eelwjin@scut.edu.cn
-
-Copyright 2024, Deep Learning and Vision Computing Lab, South China China University of Technology. http://www.dlvc-lab.net
+For commercial purpose usage, please contact Prof. Yuliang Liu: ylliu@hust.edu.cn and Prof. Lianwen Jin: eelwjin@scut.edu.cn
