@@ -1,0 +1,19 @@
+_BASE_: "Base-SWINTS_r50.yaml"
+MODEL:
+  WEIGHTS: "/data/hmx/SwinTextSpotterv2/output_weight_recbackbone_r50/model_final.pth"
+  RESNETS:
+    DEPTH: 50
+    STRIDE_IN_1X1: False
+  SWINTS:
+    NUM_PROPOSALS: 300
+    NUM_CLASSES: 2
+DATASETS:
+  TRAIN: ("totaltext_train","icdar_2015_train","icdar_2013_train","icdar_2017_mlt",)
+  TEST:  ("totaltext_test",)
+  # TEST:  ("coco_2017_test-dev",)
+SOLVER:
+  STEPS: (60000,)
+  MAX_ITER: 80000
+INPUT:
+  FORMAT: "RGB"
+OUTPUT_DIR: "output_weight_recbackbone_r50_mixtrain/"

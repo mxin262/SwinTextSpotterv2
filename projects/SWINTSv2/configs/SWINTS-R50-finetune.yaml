@@ -1,0 +1,18 @@
+_BASE_: "Base-SWINTS_r50.yaml"
+MODEL:
+  WEIGHTS: "/data/hmx/SwinTextSpotterv2/output_weight_recbackbone_r50_mixtrain/model_final.pth"
+  RESNETS:
+    DEPTH: 50
+    STRIDE_IN_1X1: False
+  SWINTS:
+    NUM_PROPOSALS: 300
+    NUM_CLASSES: 2
+DATASETS:
+  TRAIN: ("totaltext_train",)
+  TEST:  ("totaltext_test",)
+SOLVER:
+  STEPS: (6000,)
+  MAX_ITER: 10000
+INPUT:
+  FORMAT: "RGB"
+OUTPUT_DIR: "output_weight_recbackbone_r50_tt_finetune/"

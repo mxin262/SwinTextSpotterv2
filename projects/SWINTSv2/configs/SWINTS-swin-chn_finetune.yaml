@@ -1,0 +1,21 @@
+_BASE_: "Base-SWINTS_swin.yaml"
+MODEL:
+  WEIGHTS: "/home/zyserver/disk1/hmx/SwinTextSpotter-main/output_weight_recbackbone_chn/model_final.pth"
+  SWINTS:
+    NUM_PROPOSALS: 300
+    NUM_CLASSES: 2
+  REC_HEAD:
+    POOLER_RESOLUTION: (16,48)
+    RESOLUTION: (32, 80)
+    BATCH_SIZE: 48
+    NUM_CLASSES: 5620
+DATASETS:
+  TRAIN: ("rects",)
+  TEST:  ("totaltext_test",)
+SOLVER:
+  STEPS: (140000,160000)
+  MAX_ITER: 180000
+  CHECKPOINT_PERIOD: 10000
+INPUT:
+  FORMAT: "RGB"
+OUTPUT_DIR: "output_weight_recbackbone_rects/"

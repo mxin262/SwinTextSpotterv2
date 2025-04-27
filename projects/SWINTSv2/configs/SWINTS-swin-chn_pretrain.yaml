@@ -1,0 +1,22 @@
+_BASE_: "Base-SWINTS_swin.yaml"
+MODEL:
+  WEIGHTS: "swin_imagenet_pretrain.pth"
+  SWINTS:
+    NUM_PROPOSALS: 300
+    NUM_CLASSES: 2
+  REC_HEAD:
+    POOLER_RESOLUTION: (16,48)
+    RESOLUTION: (32, 80)
+    BATCH_SIZE: 48
+    NUM_CLASSES: 5620
+DATASETS:
+  TRAIN: ("rects","art","lsvt","chn_syn",)
+  # TRAIN: ("chn_syn",)
+  TEST:  ("rects_test",)
+SOLVER:
+  STEPS: (180000,230000)
+  MAX_ITER: 270100
+  CHECKPOINT_PERIOD: 10000
+INPUT:
+  FORMAT: "RGB"
+OUTPUT_DIR: "output_weight_recbackbone_chn/"

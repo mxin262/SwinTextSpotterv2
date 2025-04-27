@@ -1,0 +1,19 @@
+_BASE_: "Base-SWINTS_swin.yaml"
+MODEL:
+  WEIGHTS: "/data/hmx/SwinTextSpotterv2/output_pretrained_2024_12_21/model_final.pth"
+  SWINTS:
+    NUM_PROPOSALS: 300
+    NUM_CLASSES: 2
+DATASETS:
+  # TRAIN: ("totaltext_train",)
+  # TRAIN: ("totaltext_train","icdar_2015_train","icdar_2013_train","icdar_2017_validation_mlt","icdar_2017_mlt",)
+  TRAIN: ("totaltext_train","icdar_2015_train","icdar_2013_train","icdar_2017_mlt","textocr",)
+  TEST:  ("totaltext_test",)
+  # TEST:  ("coco_2017_test-dev",)
+SOLVER:
+  STEPS: (360000,420000)
+  MAX_ITER: 450000
+  CHECKPOINT_PERIOD: 20000
+INPUT:
+  FORMAT: "RGB"
+OUTPUT_DIR: "output_weight_recbackbone_mixtrain_26W_2_wihout_hiertext/"

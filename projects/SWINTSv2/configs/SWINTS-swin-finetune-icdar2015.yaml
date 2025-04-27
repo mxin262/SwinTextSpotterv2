@@ -1,0 +1,20 @@
+_BASE_: "Base-SWINTS_swin.yaml"
+MODEL:
+  WEIGHTS: "/data/hmx/SwinTextSpotterv2/output_weight_recbackbone_mixtrain_26W_2_wihout_hiertext/model_final.pth"
+  SWINTS:
+    NUM_PROPOSALS: 300
+    NUM_CLASSES: 2
+DATASETS:
+  TRAIN: ("icdar_2015_train",)
+  TEST:  ("icdar2015_test",)
+SOLVER:
+  BASE_LR: 0.0000025
+  STEPS: (6000,)
+  MAX_ITER: 10000
+  CHECKPOINT_PERIOD: 1000
+TEST:
+  EVAL_PERIOD: 1000
+  INFERENCE_TH_TEST: 0.26
+INPUT:
+  FORMAT: "RGB"
+OUTPUT_DIR: "output_weight_recbackbone_mixtrain_26W_2_wihout_hiertext_ic15_finetune/"
